@@ -154,6 +154,105 @@ The groovy commutator K provides a potential path to **algebraically derive** Wo
 
 The key insight is that **Class IV rules (like Rule 110) show something unexpected**: K concentrates at the edges of localized structures—precisely where "gliders" and computational interactions occur. This suggests Class IV's computational universality arises from a specific *pattern* of expectation failure, not just its magnitude.
 
+## Prime Number Research: Cumulative K Analysis
+
+Extending the groovy commutator to number theory reveals striking patterns in how K accumulates between consecutive primes.
+
+### Primes Research Notebook
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/primes_research.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=primes_research.ipynb)
+
+### Key Finding: Cumulative K Depends on Both Gap Size AND Prime Magnitude
+
+For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. Initial analysis showed a -0.991 correlation with gap size alone, but **the residuals revealed hidden structure**: a systematic dependence on log(p₁).
+
+![Cumulative K Between Primes](images/cumulative_k_primes.png)
+
+The improved model achieves **R² = 0.9995**:
+
+```
+Σ K ≈ -0.90 × gap - 0.14 × gap × log(p₁) - 2.11
+```
+
+This can be rewritten as a **prime-magnitude-dependent ratio**:
+
+```
+Σ K / gap ≈ -0.90 - 0.14 × log(p₁)
+```
+
+![Improved Model Analysis](images/improved_model.png)
+
+**Interpretation**: The ratio of cumulative K to gap size isn't constant—it grows more negative logarithmically with prime magnitude. Small primes have ratios around -1.2, while primes near 10⁶ approach -2.9. This log(p) dependence was hidden in the "1% unexplained variance" of the simpler linear model.
+
+| Model | Formula | R² |
+|-------|---------|-----|
+| Gap only | Σ K = -2.22 × gap - 1.65 | 0.9912 |
+| Gap + log(p) | Σ K = -2.18 × gap - 1.02 × log(p₁) + 6.82 | 0.9979 |
+| **Gap × log(p)** | **Σ K = -0.90 × gap - 0.14 × gap × log(p₁) - 2.11** | **0.9995** |
+
+### Twin Primes Show Distinctive K Signature
+
+Twin primes (pairs where p₂ - p₁ = 2) exhibit a notably more negative K-to-gap ratio than non-twin gaps.
+
+![Twin Prime Analysis](images/twin_primes_analysis.png)
+
+| Gap Type | Σ K / gap |
+|----------|-----------|
+| Twin (gap=2) | -3.14 |
+| Non-twin (avg) | -2.44 |
+
+The twin prime ratio of approximately **-π** is intriguing—though likely coincidental, it suggests twin primes occupy a special position in the multiplicative landscape where K per unit gap is maximally negative.
+
+### Sophie Germain Primes
+
+Sophie Germain primes (p where both p and 2p+1 are prime) show slightly more negative K values than regular primes, indicating stronger adherence to multiplicative structure.
+
+![Sophie Germain Analysis](images/sophie_germain_analysis.png)
+
+| Prime Type | Mean K | Gap Structure |
+|------------|--------|---------------|
+| Sophie Germain | -2.23 | Sparse (mean gap ~75) |
+| Regular primes | -1.96 | Dense (mean gap ~7) |
+
+### Cramér's Conjecture Relationship
+
+Cramér's conjecture bounds prime gaps by O((log p)²). Our analysis shows K accumulates more negatively at record-breaking gaps, with the K-per-unit-gap ratio increasing in magnitude as gaps approach the Cramér bound.
+
+![Cramér Conjecture Analysis](images/cramer_conjecture_analysis.png)
+
+### Multiplicative Functions: Möbius μ and Euler φ
+
+Extending to classical multiplicative functions reveals that K(φ) behaves similarly at primes and composites, suggesting the groovy commutator captures properties orthogonal to primality.
+
+![Multiplicative Functions](images/multiplicative_functions.png)
+
+### Research Summary
+
+![Research Summary](images/research_summary.png)
+
+**Key insights from prime number research**:
+
+1. **Cumulative K encodes prime structure via gap × log(p)**: The best model (R² = 0.9995) shows Σ K depends on the product of gap size and log of prime magnitude—not just gap alone
+2. **The ratio Σ K / gap grows logarithmically**: Small primes (~10) have ratio ≈ -1.2; large primes (~10⁶) approach -2.9
+3. **Twin primes are K-dense**: The more negative K/gap ratio at twin primes may reflect their special multiplicative position
+4. **K complements rather than duplicates primality**: The similar K(φ) behavior at primes and composites suggests K measures a different structural property
+
+### Future Research: The "Lucky" Commutator K₂
+
+A related commutator using the **arithmetic derivative** D (where D(p) = 1 for primes, and D(ab) = aD(b) + bD(a)):
+
+```
+K₂(n) = D(n+1) − D(n) − 1
+```
+
+This commutator has an interesting property: for any two integers a, b with equal arithmetic derivatives D(a) = D(b):
+
+```
+Σ K₂ from a to b-1 = -(b - a)
+```
+
+Since all primes have D(p) = 1, this means Σ K₂ between any two primes equals exactly the negative gap—a tautological but elegant identity. Whether K₂ reveals non-trivial structure in other contexts remains to be explored.
+
 ## Using the Notebook
 
 Click either badge above to run the notebook interactively:
