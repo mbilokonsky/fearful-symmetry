@@ -154,6 +154,75 @@ The groovy commutator K provides a potential path to **algebraically derive** Wo
 
 The key insight is that **Class IV rules (like Rule 110) show something unexpected**: K concentrates at the edges of localized structures—precisely where "gliders" and computational interactions occur. This suggests Class IV's computational universality arises from a specific *pattern* of expectation failure, not just its magnitude.
 
+## Prime Number Research: Cumulative K Analysis
+
+Extending the groovy commutator to number theory reveals striking patterns in how K accumulates between consecutive primes.
+
+### Primes Research Notebook
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/primes_research.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=primes_research.ipynb)
+
+### Key Finding: Cumulative K Scales Linearly (and Negatively) with Gap Size
+
+For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. The correlation between gap size and cumulative K is **-0.991**—an almost perfect negative linear relationship.
+
+![Cumulative K Between Primes](images/cumulative_k_primes.png)
+
+**Interpretation**: The groovy commutator K (using D = log, the multiplicative derivative) measures deviation from multiplicative linearity. The strong negative correlation suggests that larger prime gaps represent regions where multiplicative structure is more "settled"—the integers between distant primes accumulate more negative K, indicating they conform more closely to multiplicative expectations.
+
+| Statistic | Value |
+|-----------|-------|
+| Correlation (gap, Σ K) | -0.991 |
+| Mean Σ K / gap | -2.32 |
+| Std of ratio | 0.41 |
+
+### Twin Primes Show Distinctive K Signature
+
+Twin primes (pairs where p₂ - p₁ = 2) exhibit a notably more negative K-to-gap ratio than non-twin gaps.
+
+![Twin Prime Analysis](images/twin_primes_analysis.png)
+
+| Gap Type | Σ K / gap |
+|----------|-----------|
+| Twin (gap=2) | -3.14 |
+| Non-twin (avg) | -2.44 |
+
+The twin prime ratio of approximately **-π** is intriguing—though likely coincidental, it suggests twin primes occupy a special position in the multiplicative landscape where K per unit gap is maximally negative.
+
+### Sophie Germain Primes
+
+Sophie Germain primes (p where both p and 2p+1 are prime) show slightly more negative K values than regular primes, indicating stronger adherence to multiplicative structure.
+
+![Sophie Germain Analysis](images/sophie_germain_analysis.png)
+
+| Prime Type | Mean K | Gap Structure |
+|------------|--------|---------------|
+| Sophie Germain | -2.23 | Sparse (mean gap ~75) |
+| Regular primes | -1.96 | Dense (mean gap ~7) |
+
+### Cramér's Conjecture Relationship
+
+Cramér's conjecture bounds prime gaps by O((log p)²). Our analysis shows K accumulates more negatively at record-breaking gaps, with the K-per-unit-gap ratio increasing in magnitude as gaps approach the Cramér bound.
+
+![Cramér Conjecture Analysis](images/cramer_conjecture_analysis.png)
+
+### Multiplicative Functions: Möbius μ and Euler φ
+
+Extending to classical multiplicative functions reveals that K(φ) behaves similarly at primes and composites, suggesting the groovy commutator captures properties orthogonal to primality.
+
+![Multiplicative Functions](images/multiplicative_functions.png)
+
+### Research Summary
+
+![Research Summary](images/research_summary.png)
+
+**Key insights from prime number research**:
+
+1. **Cumulative K is a prime gap predictor**: The near-perfect correlation (-0.99) between gap size and Σ K suggests the commutator encodes information about prime distribution
+2. **Twin primes are K-dense**: The more negative K/gap ratio at twin primes may reflect their special multiplicative position
+3. **Sophie Germain primes show stronger multiplicative conformity**: Their more negative mean K aligns with their role in cryptographic "safe primes"
+4. **K complements rather than duplicates primality**: The similar K(φ) behavior at primes and composites suggests K measures a different structural property
+
 ## Using the Notebook
 
 Click either badge above to run the notebook interactively:
