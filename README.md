@@ -162,19 +162,33 @@ Extending the groovy commutator to number theory reveals striking patterns in ho
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/primes_research.ipynb)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=primes_research.ipynb)
 
-### Key Finding: Cumulative K Scales Linearly (and Negatively) with Gap Size
+### Key Finding: Cumulative K Depends on Both Gap Size AND Prime Magnitude
 
-For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. The correlation between gap size and cumulative K is **-0.991**—an almost perfect negative linear relationship.
+For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. Initial analysis showed a -0.991 correlation with gap size alone, but **the residuals revealed hidden structure**: a systematic dependence on log(p₁).
 
 ![Cumulative K Between Primes](images/cumulative_k_primes.png)
 
-**Interpretation**: The groovy commutator K (using D = log, the multiplicative derivative) measures deviation from multiplicative linearity. The strong negative correlation suggests that larger prime gaps represent regions where multiplicative structure is more "settled"—the integers between distant primes accumulate more negative K, indicating they conform more closely to multiplicative expectations.
+The improved model achieves **R² = 0.9995**:
 
-| Statistic | Value |
-|-----------|-------|
-| Correlation (gap, Σ K) | -0.991 |
-| Mean Σ K / gap | -2.32 |
-| Std of ratio | 0.41 |
+```
+Σ K ≈ -0.90 × gap - 0.14 × gap × log(p₁) - 2.11
+```
+
+This can be rewritten as a **prime-magnitude-dependent ratio**:
+
+```
+Σ K / gap ≈ -0.90 - 0.14 × log(p₁)
+```
+
+![Improved Model Analysis](images/improved_model.png)
+
+**Interpretation**: The ratio of cumulative K to gap size isn't constant—it grows more negative logarithmically with prime magnitude. Small primes have ratios around -1.2, while primes near 10⁶ approach -2.9. This log(p) dependence was hidden in the "1% unexplained variance" of the simpler linear model.
+
+| Model | Formula | R² |
+|-------|---------|-----|
+| Gap only | Σ K = -2.22 × gap - 1.65 | 0.9912 |
+| Gap + log(p) | Σ K = -2.18 × gap - 1.02 × log(p₁) + 6.82 | 0.9979 |
+| **Gap × log(p)** | **Σ K = -0.90 × gap - 0.14 × gap × log(p₁) - 2.11** | **0.9995** |
 
 ### Twin Primes Show Distinctive K Signature
 
@@ -218,10 +232,26 @@ Extending to classical multiplicative functions reveals that K(φ) behaves simil
 
 **Key insights from prime number research**:
 
-1. **Cumulative K is a prime gap predictor**: The near-perfect correlation (-0.99) between gap size and Σ K suggests the commutator encodes information about prime distribution
-2. **Twin primes are K-dense**: The more negative K/gap ratio at twin primes may reflect their special multiplicative position
-3. **Sophie Germain primes show stronger multiplicative conformity**: Their more negative mean K aligns with their role in cryptographic "safe primes"
+1. **Cumulative K encodes prime structure via gap × log(p)**: The best model (R² = 0.9995) shows Σ K depends on the product of gap size and log of prime magnitude—not just gap alone
+2. **The ratio Σ K / gap grows logarithmically**: Small primes (~10) have ratio ≈ -1.2; large primes (~10⁶) approach -2.9
+3. **Twin primes are K-dense**: The more negative K/gap ratio at twin primes may reflect their special multiplicative position
 4. **K complements rather than duplicates primality**: The similar K(φ) behavior at primes and composites suggests K measures a different structural property
+
+### Future Research: The "Lucky" Commutator K₂
+
+A related commutator using the **arithmetic derivative** D (where D(p) = 1 for primes, and D(ab) = aD(b) + bD(a)):
+
+```
+K₂(n) = D(n+1) − D(n) − 1
+```
+
+This commutator has an interesting property: for any two integers a, b with equal arithmetic derivatives D(a) = D(b):
+
+```
+Σ K₂ from a to b-1 = -(b - a)
+```
+
+Since all primes have D(p) = 1, this means Σ K₂ between any two primes equals exactly the negative gap—a tautological but elegant identity. Whether K₂ reveals non-trivial structure in other contexts remains to be explored.
 
 ## Using the Notebook
 
