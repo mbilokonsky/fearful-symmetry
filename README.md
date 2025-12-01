@@ -79,6 +79,45 @@ The commutator provides a precise, local measure of nonlinearity:
 
 Visualizing the derivative alongside state evolution shows how "activity" propagates differently than the state itself. The derivative often reveals structure that isn't obvious from the state alone.
 
+## Findings
+
+The following visualizations show state evolution (S) alongside the commutator (C) for representative rules. Red regions in the commutator indicate nonlinearity—where the order of differentiation and evolution matters.
+
+### Rule 30 (Chaotic) — Total nonlinearity: 2405
+
+![Rule 30](images/rule_30.png)
+
+Rule 30 produces pseudo-random, chaotic patterns from a single seed cell. The commutator shows intense nonlinearity throughout the active region, with complex patterns that mirror—but don't duplicate—the chaotic structure. This high nonlinearity is characteristic of Class III (chaotic) rules.
+
+### Rule 90 (Linear) — Total nonlinearity: 0
+
+![Rule 90](images/rule_90.png)
+
+Rule 90 generates the Sierpiński triangle through pure XOR operations. The commutator is **completely zero**—differentiation and evolution commute perfectly. This confirms Rule 90 is purely linear: it can be fully decomposed without any order-dependent interactions.
+
+### Rule 110 (Turing Complete) — Total nonlinearity: 1057
+
+![Rule 110](images/rule_110.png)
+
+Rule 110 is proven Turing complete—capable of universal computation. Its commutator shows moderate, structured nonlinearity. The nonlinear regions appear at the boundaries of localized structures, suggesting these are precisely the sites where computational interactions occur.
+
+### Rule 184 (Traffic Flow) — Total nonlinearity: 150
+
+![Rule 184](images/rule_184.png)
+
+Rule 184 models traffic flow (particles moving right unless blocked). It shows minimal nonlinearity, concentrated at particle collision sites. This makes physical sense: the rule is mostly linear (particles flow freely) with nonlinearity only where particles interact.
+
+### Summary
+
+| Rule | Class | Total Nonlinearity | Behavior |
+|------|-------|-------------------|----------|
+| 30 | III (Chaotic) | 2405 | High, distributed nonlinearity |
+| 90 | II (Periodic) | 0 | Perfectly linear (XOR-based) |
+| 110 | IV (Complex) | 1057 | Moderate, localized at structures |
+| 184 | II (Periodic) | 150 | Minimal, only at interactions |
+
+The commutator successfully distinguishes rule classes: chaotic rules show high nonlinearity, linear rules show zero, and complex/computational rules show intermediate, structured patterns.
+
 ## Using the Notebook
 
 Click either badge above to run the notebook interactively:
