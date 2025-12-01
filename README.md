@@ -66,6 +66,24 @@ The commutator asks: **does the order of operations matter?**
 
 Where these differ (commutator = 1), the system exhibits **nonlinearity**. Linear rules like Rule 90 have zero commutator everywhere. Chaotic rules like Rule 30 show complex commutator patterns.
 
+#### Groovy Commutator: K(S)
+```
+K(S) = D(S + D(S)) - (D(S) + D(D(S)))
+```
+
+The groovy commutator is a full generalization of C that captures a deeper insight: **"knowing what to expect changes how you experience what happens."**
+
+Expanding the formula:
+- `S + D(S)` is `E(S)` — the evolved state (what we expect)
+- `D(S + D(S))` is `D(E(S))` — how we experience what actually happens
+- `D(S) + D(D(S))` — our prior expectation of change plus how that expectation itself changes
+
+K measures the gap between:
+1. **Experiencing change directly** — differentiating the evolved state
+2. **Anticipating change** — our derivative plus the derivative of our derivative
+
+When K = 0, anticipation perfectly predicts experience. When K ≠ 0, reality surprises us in ways our expectations couldn't capture.
+
 ## What This Reveals
 
 ### Linear vs Nonlinear Rules
@@ -117,6 +135,19 @@ Rule 184 models traffic flow (particles moving right unless blocked). It shows m
 | 184 | II (Periodic) | 150 | Minimal, only at interactions |
 
 The commutator successfully distinguishes rule classes: chaotic rules show high nonlinearity, linear rules show zero, and complex/computational rules show intermediate, structured patterns.
+
+### Algebraic Classification via Groovy Commutator
+
+The groovy commutator K provides a potential path to **algebraically derive** Wolfram's four classes without simulation:
+
+| Class | K Behavior | Interpretation |
+|-------|------------|----------------|
+| **I (Homogeneous)** | K → 0 rapidly | Expectations converge to reality |
+| **II (Periodic)** | K oscillates, bounded | Expectations cycle predictably |
+| **III (Chaotic)** | K high, distributed | Expectations persistently wrong |
+| **IV (Complex)** | K localized, structured | Expectations fail *only at boundaries* |
+
+The key insight is that **Class IV rules (like Rule 110) show something unexpected**: K concentrates at the edges of localized structures—precisely where "gliders" and computational interactions occur. This suggests Class IV's computational universality arises from a specific *pattern* of expectation failure, not just its magnitude.
 
 ## Using the Notebook
 
@@ -171,6 +202,19 @@ results = calc.run_analysis(initial_state, generations=100)
 states = results['states']         # State evolution
 derivatives = results['derivatives']  # D(S) at each step
 commutators = results['commutators']  # C(S) at each step
+```
+
+The `src/groovy_commutator.py` module provides the generalized groovy commutator:
+
+```python
+from src.groovy_commutator import GroovyCommutator
+
+# For CA analysis with a specific rule
+gc = GroovyCommutator(mode='binary', rule=30)
+k = gc.compute(state)  # Returns K(state)
+
+# Analyze structure across evolution
+total_k = sum(gc.compute(state) for state in states)
 ```
 
 ## Requirements
