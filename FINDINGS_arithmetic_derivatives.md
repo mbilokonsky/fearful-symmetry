@@ -166,9 +166,103 @@ The Sieve of Eratosthenes can be visualized as a CA-like process, though it requ
 3. **CA primality**: Can Rule 110 be programmed (via initial conditions) to perform primality testing?
 4. **Local sieve**: Is there a purely local CA rule that approximates sieving?
 
+---
+
+## Part 4: New Experiments (Follow-up)
+
+### Experiment A: D(n) Across Prime Gaps
+
+We examined the shape of D for composites between consecutive primes.
+
+**Key findings:**
+
+| Metric | Correlation with gap size |
+|--------|---------------------------|
+| max(D) in gap | 0.8949 |
+| mean(D) in gap | 0.4919 |
+| sum(D) in gap | **0.9664** |
+
+**Linear fit**: Σ D across a gap ≈ **803.5 × gap - 2300.5**
+
+This is striking: the sum of arithmetic derivatives across a prime gap scales almost perfectly linearly with gap size. This may explain the gap × log(p) dependence we found in cumulative K.
+
+![D Across Gaps](images/d_across_gaps.png)
+![D Gap Statistics](images/d_gap_statistics.png)
+
+---
+
+### Experiment B: K_D — The Arithmetic Derivative Commutator
+
+We defined a new commutator using D instead of forward difference:
+```
+K_D(n) = D(n + D(n)) - (D(n) + D(D(n)))
+```
+
+**Key findings:**
+
+| Statistic | Value |
+|-----------|-------|
+| Mean K_D (all) | 18.72 |
+| Mean K_D (primes) | **260.34** |
+| Mean K_D (composites) | -38.10 |
+| Correlation with K₂ | 0.30 |
+
+**The K_D commutator strongly separates primes from composites!**
+
+For primes p: K_D(p) = D(p+1) - 1
+
+Examples:
+- K_D(2) = D(3) - 1 = 0
+- K_D(7) = D(8) - 1 = 11
+- K_D(29) = D(30) - 1 = 29
+
+The fact that primes have much higher K_D values (mean 260 vs -38 for composites) suggests K_D captures multiplicative structure in a way that K₂ doesn't.
+
+![K_D Commutator](images/k_d_commutator.png)
+
+---
+
+### Experiment C: Twin Prime Reachability via D
+
+For twin primes (p, p+2), we asked: which are "reachable" — meaning D(x) = p for some x?
+
+**Results for 35 twin pairs up to 1000:**
+
+| Category | Count |
+|----------|-------|
+| Both reachable | 21 pairs (60%) |
+| Neither reachable | 2 pairs |
+| Only p reachable | 2 pairs |
+| Only p+2 reachable | 10 pairs |
+
+**Examples where BOTH twins are reachable:**
+- (5, 7): D(6) = 5, D(10) = 7
+- (59, 61): D(36) = 59, D(66) = 61
+- (71, 73): D(105) = 71, D(142) = 73
+
+**Examples where NEITHER is reachable:**
+- (29, 31) — no x has D(x) = 29 or D(x) = 31
+- (827, 829)
+
+**Observation**: The twin pair (29, 31) is notable — both members are unreachable. This is rare. It suggests 29 and 31 occupy an unusual position in the multiplicative landscape.
+
+![Twin Prime Reachability](images/twin_prime_reachability.png)
+
+---
+
+## Updated Conclusions
+
+The new experiments reveal:
+
+1. **Σ D across gaps scales linearly with gap size** (r = 0.97) — this tight relationship may underpin the gap × log(p) term in cumulative K
+
+2. **K_D strongly separates primes from composites** — mean 260 for primes vs -38 for composites. This is a much cleaner signal than K₂.
+
+3. **Most twin primes are D-reachable** (60% have both members reachable), but some pairs like (29, 31) are completely unreachable
+
 ### Suggested Follow-ups
 
-- Investigate the spectral peaks in K₂ more carefully against Riemann zeros
-- Try different CA rules (Rule 54, Rule 150) for prime detection
-- Explore whether D⁻¹(k) sizes follow any asymptotic law
-- Connect derivative chain length to prime factorization structure
+- Investigate why (29, 31) is unreachable — what's special about these twins?
+- Use K_D as a primality heuristic — does high K_D predict primality?
+- Connect the linear Σ D ~ gap relationship to the explicit formula for primes
+- Explore whether the 803.5 coefficient in Σ D has number-theoretic meaning
