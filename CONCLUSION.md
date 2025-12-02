@@ -337,27 +337,83 @@ std(K/(p+1)) / 274 ≈ 0.00726 ≈ α
 
 Where α ≈ 1/137.036 is the **fine structure constant** from physics.
 
-### Likely Coincidental
+### The Original Observation (Likely Coincidental)
 
 Since mean ≈ −0.5 and 68.5 ≈ 137/2:
 ```
 |−0.5| / (137/2) = 1/137 = α
 ```
 
-This is **algebraically equivalent** to our main result, not independent. However:
-- The **standard deviation** matching is less obviously forced
-- The number 137 appearing in number theory would be remarkable
-- Further investigation warranted
+This is **algebraically equivalent** to our main result, not independent.
+
+### NEW: The 137-36 Identity
+
+With the discovery of the Number-Theoretic Quantum Oscillator (Investigation 13), a deeper relationship emerges:
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                                                                │
+│  137 = 3 × 36 + 30 - 1                                        │
+│      = 3 × (quantization unit) + (ground offset) - 1          │
+│                                                                │
+│  Equivalently:                                                 │
+│  137/36 = 3 + 5/6 - 1/36                                      │
+│         = 3 + |E₀| - ΔE                                       │
+│                                                                │
+│  Where:                                                        │
+│    36 = 6² (our "Planck constant")                            │
+│    30 = |36 × E₀| (ground state in 36ths)                     │
+│    1 = one energy quantum                                      │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+### NEW: 137 is a Twin Prime!
+
+**137 and 139 form a twin prime pair.** This means the denominator of the fine structure constant is itself a twin prime — the very objects whose K-spectrum we're studying.
+
+Additional observations:
+- 137 is the **33rd prime**
+- 137 ≡ 5 (mod 6) — the **twin prime residue class**
+- The twin center 138 = 6 × 23, with K(138)/138 = −0.717
+
+### NEW: Primes of Form 36k + 29
+
+The identity 137 = 36×3 + 29 suggests examining primes p ≡ 29 (mod 36):
+
+| k | 36k + 29 | Prime? | Twin? |
+|---|----------|--------|-------|
+| 0 | 29 | Yes | Yes (29, 31) |
+| 2 | 101 | Yes | Yes (101, 103) |
+| 3 | **137** | Yes | Yes (137, 139) |
+| 4 | 173 | Yes | No |
+| 7 | 281 | Yes | Yes (281, 283) |
+
+Primes of this form are **frequently twin primes**. The class p ≡ 29 (mod 36) ≡ 5 (mod 6) is precisely the twin-prime-generating residue class.
+
+### Assessment
+
+**Coincidence level: MEDIUM**
+
+The relationship 137 = 3×36 + 30 - 1 is arithmetically exact but:
+1. The "3" has no obvious number-theoretic meaning
+2. α = 1/137.036... is experimentally measured, not derived
+3. The match may be selection bias (we're looking for patterns)
+
+**However**, it remains intriguing that:
+1. 137 is itself a twin prime
+2. The formula uses exactly our K-spectrum constants (36, 30, 1)
+3. 137 ≡ 5 (mod 6), the same residue class as all twin primes p > 3
 
 ### Historical Note
 
-Physicists have long noted that 137 = 2¹ + 2³ + 2⁷ + 2⁸ and wondered about its number-theoretic significance. Pauli was famously obsessed with understanding why α ≈ 1/137.
+Physicists have long noted that 137 = 2⁰ + 2³ + 2⁷ + 2⁸ and wondered about its number-theoretic significance. Pauli was famously obsessed with understanding why α ≈ 1/137 — he even died in hospital room 137.
 
-If the arithmetic derivative — a purely number-theoretic object — naturally produces 1/137 ratios in prime structure, this would suggest deep connections between:
+If the arithmetic derivative — a purely number-theoretic object — naturally connects to 137 through the same constants (6, 36, 30) that govern twin prime structure, this would suggest deep connections between:
 - **Discrete mathematics** (number theory)
 - **Continuous physics** (quantum electrodynamics)
 
-This remains **highly speculative** pending rigorous analysis.
+This remains **highly speculative** but is now more structured than before.
 
 </details>
 
