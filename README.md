@@ -162,6 +162,15 @@ Extending the groovy commutator to number theory reveals striking patterns in ho
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/primes_research.ipynb)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=primes_research.ipynb)
 
+### Arithmetic Derivatives Spike
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/arithmetic_derivatives_spike.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=arithmetic_derivatives_spike.ipynb)
+
+A theoretical exploration of three interrelated ideas:
+1. **D⁻¹ (Arithmetic Antiderivative)** — The primes are exactly D⁻¹(1). What structure exists in other antiderivative classes?
+2. **K, K₂, and Riemann Zeroes** — Do the groovy and lucky commutators encode information about zeta zeros?
+3. **Rule 110 and Primes** — Can Turing-complete cellular automata reveal or detect prime structure?
+
 ### Key Finding: Cumulative K Depends on Both Gap Size AND Prime Magnitude
 
 For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. Initial analysis showed a -0.991 correlation with gap size alone, but **the residuals revealed hidden structure**: a systematic dependence on log(p₁).
