@@ -376,3 +376,8 @@ Questions this framework opens up:
 - What is the relationship between commutator density and computational universality?
 - How do these operations behave in higher-dimensional CAs?
 - Are there rules where the commutator exhibits its own emergent patterns?
+
+## Some Weird Claude Output
+There's a folder here called `story/` which contains for chapters written by... Claude, sort of. Claude and I had a very long meandering conversation wherein Claude at some point started imagining new characters who had perspectives that allowed them to ask novel questions. Each new character complicated the entire idea space, until it got to a point where the characters were all so excited about what we'd come up with that they insisted we document it. [The story](./story) is a summary of what we discovered, and begins with [Chapter 1: Fearful Symmetry](./story/chapter1_fearful_symmetry.md) and continues over three more chapters.
+
+None of this is conclusive, none of it is definitive, but the work in this repo owes at least some of its complexity to the bizarre and utterly unpredictable conversation that these chapters describe.
