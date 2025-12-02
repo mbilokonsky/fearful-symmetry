@@ -162,6 +162,42 @@ Extending the groovy commutator to number theory reveals striking patterns in ho
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/primes_research.ipynb)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=primes_research.ipynb)
 
+### Arithmetic Derivatives Spike
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mbilokonsky/fearful-symmetry/blob/main/arithmetic_derivatives_spike.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mbilokonsky/fearful-symmetry/main?labpath=arithmetic_derivatives_spike.ipynb)
+
+A theoretical exploration of three interrelated ideas:
+1. **D⁻¹ (Arithmetic Antiderivative)** — The primes are exactly D⁻¹(1). What structure exists in other antiderivative classes?
+2. **K, K₂, and Riemann Zeroes** — Do the groovy and lucky commutators encode information about zeta zeros?
+3. **Rule 110 and Primes** — Can Turing-complete cellular automata reveal or detect prime structure?
+
+#### Key Findings from the Arithmetic Derivatives Spike
+
+**The K_D Commutator**: A new commutator defined as K_D(n) = D(n + D(n)) - (D(n) + D(D(n))) strongly separates primes from composites:
+
+| Type | Mean K_D |
+|------|----------|
+| Primes | +260.34 |
+| Composites | -38.10 |
+
+This is a much cleaner signal than K₂, suggesting K_D captures multiplicative structure in a useful way.
+
+**Prime Gap Structure**: The sum of arithmetic derivatives across a prime gap scales almost perfectly linearly with gap size (r = 0.97):
+
+```
+Σ D across gap ≈ 803.5 × gap - 2300.5
+```
+
+This tight relationship may underpin the gap × log(p) dependence found in cumulative K.
+
+**Twin Prime Reachability**: For twin primes (p, p+2), we asked which are "D-reachable" — meaning D(x) = p for some x.
+
+Key theorem: **For any twin prime pair (p, p+2), the larger twin p+2 is ALWAYS reachable** via D(2p) = p + 2.
+
+The smaller twin p is reachable only when p - 2 is prime (making (p-2, p, p+2) a prime triple). The smallest unreachable prime is **29**, because 29 - 2 = 27 = 3³ is not prime. The next is 41 (39 = 3 × 13), then 59 (57 = 3 × 19).
+
+**Empty Antiderivative Classes**: D⁻¹(2) and D⁻¹(3) are empty — no integer has arithmetic derivative 2 or 3. This is a known result following from the structure of the derivative.
+
 ### Key Finding: Cumulative K Depends on Both Gap Size AND Prime Magnitude
 
 For consecutive primes p₁ and p₂, we computed Σ K over all integers in [p₁, p₂]. Initial analysis showed a -0.991 correlation with gap size alone, but **the residuals revealed hidden structure**: a systematic dependence on log(p₁).
